@@ -12,7 +12,7 @@ def get_random_soup():
         'Суп с фрикадельками и гречкой',
         'Суп с фрикадельками и овощами',
     ]
-    pass
+    return random.choice(data_soup)
 
 def get_random_second_dish():
     data_dish = [
@@ -57,7 +57,7 @@ def get_random_second_dish():
         'Курица с картошкой запечённая в духовке',
         'Курица с овощами запечённая в духовке',
     ]
-    pass
+    return random.choice(data_dish)
 
 def get_random_bread():
     data_bread = [
@@ -69,7 +69,7 @@ def get_random_bread():
         'Бутерброд из вчерашнего хлеба с домашним паштетом',
         'Бутерброд из вчерашнего хлеба с сыром',
     ]
-    pass
+    return random.choice(data_bread)
 
 def get_random_compote():
     return 'Кампот только из сухофруктов, другого нельзя!'
@@ -78,7 +78,18 @@ def get_random_candies():
     return 'А сладкое нельзя!'
 
 def main():
-    pass
+    print('Не знаете что готовить?')
+    print('Слуайный генератор поможет вам в этом нелегком выборе!')
+    print('Выберите Суп, Второе, Хлеб, Компот или Сладкое')
+    data_sel = {
+        'суп': get_random_soup(),
+        'второе': get_random_second_dish(),
+        'хлеб': get_random_bread(),
+        'компот': get_random_compote(),
+        'сладкое': get_random_candies(),
+    }
+    user_sel = input('Ваш выбор ->')
+    print(data_sel.get(user_sel.lower(), 'Не понятно'))
 
 if __name__ == '__main__':
     main()
